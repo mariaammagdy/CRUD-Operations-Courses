@@ -1,0 +1,93 @@
+﻿
+@{
+    Layout = null;
+    int x = 10;
+    int age = 20;
+    string[] names = [ "mariam", "mahmoud", "nada", "maram" ];
+    Department dept = new Department() { DeptId = 10, DeptName = "CS", Capacity = 130 };
+    List<Department> depts = [
+          new Department() { DeptId = 20, DeptName = "IS", Capacity = 120 },
+          new Department() { DeptId = 30, DeptName = "SE", Capacity = 140 },
+         new Department()  { DeptId = 50, DeptName = "SD", Capacity = 160 }
+
+    ];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>show</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>
+                   Id
+                </th>
+                <th>
+                    name
+                </th>
+                <th>
+                    capacity
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(depts.Count==0)
+            {
+                <tr>
+                    <td colspan="3">No depts Found</td>
+                </tr>
+            }
+            else
+            {
+                
+            
+            @foreach(var i in depts)
+            {
+                <tr>
+                    <td>@i.DeptId</td>
+                    <td>@i.DeptName</td>
+                    <td>@i.Capacity</td>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+
+
+    <h1>
+        @dept
+    </h1>
+
+
+    <h1>
+        @dept.DeptId :: @dept.DeptName :: @dept.Capacity
+    </h1>
+    <ul>
+        @foreach(var i in names)
+        {
+            <li>@i</li>
+        }
+
+    </ul>
+    <h1>@x</h1>
+    <h1>age = @(age+1)</h1>
+    <h1> hello from mvc first app</h1>
+    @if(age>19)
+    {
+        <div>
+            age greater than 20
+        </div>
+    }
+    else
+    {
+        <div>
+            age less than 20
+        </div>
+    }
+</body>
+</html>

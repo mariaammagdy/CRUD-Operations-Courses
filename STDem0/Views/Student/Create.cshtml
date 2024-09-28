@@ -1,0 +1,59 @@
+﻿        @model Student
+@{
+    Layout = "_layout2";
+    ViewBag.Title = "create";
+}
+
+<div class="container">
+    <div class="container table-container">
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Age" class="control-label"></label>
+            <input asp-for="Age" class="form-control" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        
+
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CPassword" class="control-label"></label>
+            <input asp-for="CPassword" class="form-control" />
+            <span asp-validation-for="CPassword" class="text-danger"></span>
+       
+
+        </div>
+        <div class="form-group">
+        <label asp-for="DeptNo" class="control-label"></label>
+        <select asp-for="DeptNo" class="dropdown-toggle" asp-items="@(new SelectList(ViewBag.depts, "DeptId", "DeptName"))"></select>
+          
+		</div><br />
+
+        <input type="submit" value="Add" class="btn btn-danger" style="width: 440px; height: 40px;" />
+    </form>
+
+    </div>
+    </div>
+<br />
+<div class="form-group">
+    <a style="margin-left:400px" class="btn btn-outline-secondary" asp-action="Index">Go Back</a>
+</div>

@@ -1,0 +1,293 @@
+﻿
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="author" content="Wink Hosting (www.winkhosting.com)" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link rel="stylesheet" href="~/images/style.css" type="text/css" />
+
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title</title>
+	<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script type="application/json" class="swiper-config">
+        {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+                "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+            },
+            "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+            }
+        }
+    </script>
+	<title>@ViewBag.Title</title>
+
+    <link href="~/assets/css/main.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .table-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            text-align: center; /* Centers the title horizontally */
+            margin-bottom: 20px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        .search-bar {
+            flex: 1;
+            margin-right: 10px;
+            padding: 10px 15px;
+            border: 2px solid #003366;
+            border-radius: 20px;
+            outline: none;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+            .search-bar:focus {
+                box-shadow: 0 0 10px rgba(0, 51, 102, 0.5);
+            }
+
+        .btn-add {
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-add:hover {
+                background-color: #002244;
+                color: white;
+            }
+
+        .table th {
+            background-color: #003366; /* Dark blue header */
+            color: white;
+            text-align: center;
+        }
+
+        .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray for odd rows */
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #e0f7fa; /* Light blue for even rows */
+        }
+
+        .status-label {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background-color: #28a745; /* Green background */
+            color: white;
+        }
+
+        .status-deleted {
+            background-color: #dc3545; /* Red background */
+            color: white;
+        }
+
+        .btn-custom {
+            display: inline-block;
+            margin: 0 5px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .btn-edit {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-details {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-custom i {
+            margin-right: 5px;
+        }
+
+        .portfolio-details-slider img {
+            width: 100%; /* Makes the images responsive */
+            height: 400px; /* Set a fixed height for all images */
+            object-fit: cover; /* Ensures images cover the area without distortion */
+        }
+
+        .card {
+            height: auto; /* Allow the card to grow automatically based on content */
+            padding: 20px; /* Add more padding inside the card */
+        }
+    </style>
+</head>
+<body>
+	<div id="page" align="center">
+		<div id="content" style="width:800px">
+			<div id="logo">
+				<div style="margin-top:70px" class="whitetitle">Courses</div>
+			</div>
+			<div id="topheader">
+				<div align="left" class="bodytext">
+					<br />
+					<strong>Courses</strong><br />
+					Egypt<br />
+				
+					Phone: 432-653-3121<br />
+					Courses@gmail.com
+				</div>
+				@if (User.Identity.IsAuthenticated)
+				{
+					<div id="toplinks" class="smallgraytext">
+						<a asp-action="index" asp-controller="department">Department</a> | <a asp-action="index" asp-controller="student">Students</a> | <a asp-action="index" asp-controller="course">Courses</a>
+					</div>
+				}
+			</div>
+			
+			@if (!User.Identity.IsAuthenticated)
+			{
+				<div id="menu">
+					<div align="right" class="smallwhitetext" style="padding:9px;">
+						@*	<a asp-controller="user" asp-action="Login">Login</a>|<a asp-controller="user" asp-action="register"> Register </a> *@
+					</div>
+				</div>
+			}
+			else
+			{
+				<div id="menu">
+					<div align="right" class="smallwhitetext" style="padding:9px;">
+				    <a asp-action="index" asp-controller="department"> Department </a> | <a asp-action="index" asp-controller="student"> Students </a> | <a asp-action="index" asp-controller="course"> Courses </a>| <a asp-controller="user" asp-action="Logout"> LogOut  </a>
+					</div>
+				</div>
+			}
+			@if (!User.Identity.IsAuthenticated)
+			{
+				<div id="submenu">
+					<div align="right" class="smallgraytext" style="padding:9px;">
+
+						@*<a asp-controller="user" asp-action="Login">Login</a>|<a asp-controller = "user" asp-action = "register" > Register </a > *@
+
+					</div>
+				</div>
+			}
+			else
+			{
+				<div id="submenu">
+					<div align="right" class="smallgraytext" style="padding:9px;">
+					<a asp-action="index" asp-controller="department"> Department </a> | <a asp-action="index" asp-controller="student"> Students </a> | <a asp-action="index" asp-controller="course"> Courses </a> |  <a asp-controller="user" asp-action="Logout"> LogOut @User.Identity.Name </a>
+					</div>
+				</div>
+			}
+		
+			<div id="contenttext">
+				<div style="padding:10px">
+					<span class="titletext">Welcome to Courses!</span>
+				</div>
+				<div class="bodytext" style="padding:12px;" align="justify">
+					@RenderBody()
+				
+		
+					</div>
+			</div>
+            <div id="leftpanel">
+                <div align="justify" class="graypanel">
+                    <span class="smalltitle">Courses & Departments</span><br /><br />
+
+                    <span class="smallredtext">Information Technology (IT)</span><br />
+                    <span class="bodytext">Course 1: Introduction to Networking<br />Course 2: Database Management Systems</span><br />
+       <br />
+
+                    <span class="smallredtext">Machine Learning (ML)</span><br />
+                    <span class="bodytext">Course 1: Machine Learning Foundations<br />Course 2: Advanced Algorithms</span><br />
+                <br />
+
+                    <span class="smallredtext">Artificial Intelligence (AI)</span><br />
+                    <span class="bodytext">Course 1: AI Fundamentals<br />Course 2: Neural Networks</span><br />
+                 <br />
+
+                    <span class="smallredtext">Computer Science (CS)</span><br />
+                    <span class="bodytext">Course 1: Data Structures<br />Course 2: Operating Systems</span><br />
+                <br />
+
+           
+                    <span class="smallredtext">Software Engineering (SE)</span><br />
+                    <span class="bodytext">Course 1: Software Development Lifecycle<br />Course 2: Agile Methodologies</span><br />
+    <br />
+                </div>
+            </div>
+
+			<div id="footer" class="smallgraytext">
+				<a href="#">Home</a> | <a href="#">About Us</a> | <a href="#">Products</a> | <a href="#">Our Services</a> | <a href="#">Contact Us</a>
+				| Courses
+				&copy; 2007 | <a href="http://www.winkhosting.com" target="_blank">Hosting Colombia</a>
+			</div>
+		</div>
+	</div>
+	@RenderSection("scripts", false)
+</body>
+</html>
+@*<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    @RenderBody()
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    @RenderSection("scripts" ,false)
+</body>
+</html>*@

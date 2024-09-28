@@ -1,0 +1,41 @@
+﻿@model User
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="container">
+    <div class="container table-container">
+    <form asp-action="Register" method="post">
+        <div class="form-group">
+            <label asp-for="Username" class="control-label"></label>
+            <input asp-for="Username" class="form-control" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CPassword" class="control-label"></label>
+            <input asp-for="CPassword" class="form-control" />
+            <span asp-validation-for="CPassword" class="text-danger"></span>
+        </div><br />
+        <input type="submit" value="Register" class="btn btn-danger" style="width: 440px; height: 40px;" /><br />
+        <div align="left" class="smallgraytext" style="padding:9px;">
+            <a asp-controller="user" asp-action="Login">Already Have An Account? Login Now</a>
+        </div>
+        
+    </form>
+</div>
+</div>

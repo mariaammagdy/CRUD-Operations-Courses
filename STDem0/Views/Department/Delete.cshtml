@@ -1,0 +1,20 @@
+﻿@model Department
+@{
+    Layout = "_layout2";
+    ViewBag.Title = "delete";
+}
+
+<div class="container">
+    <div class="container table-container">
+<h3> Are You Sure You Want To Delete: @Model.DeptName? </h3>
+<br />
+<form method="post">
+    <input type="submit" value="Delete" class="btn btn-danger" style="width: 430px; height: 40px;" />
+
+</form>
+
+<br />
+		<a asp-action="index" class="btn btn-outline-danger">GO to List</a>
+	</div>
+</div>
+
